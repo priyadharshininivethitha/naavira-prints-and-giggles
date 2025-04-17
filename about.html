@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Prints and Giggles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in { animation: fadeIn 1s ease-in-out forwards; opacity: 0; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .pulse-glow {
+      animation: glow 2s infinite;
+    }
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 5px gold); }
+      50% { filter: drop-shadow(0 0 10px #00ffcc); }
+    }
+    .preloader {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: white; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; font-weight: bold; color: #9333ea;
+    }
+    #backToTop {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #9333ea; color: white;
+      width: 40px; height: 40px; border-radius: 9999px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 20px;
+    }
+    .social-icons {
+      position: fixed; bottom: 20px; left: 20px; display: flex; gap: 10px;
+    }
+    .social-icons img { width: 32px; height: 32px; transition: transform 0.3s ease; }
+    .social-icons img:hover { transform: scale(1.2); }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-yellow-50 to-pink-50 text-gray-800">
+  <div class="preloader" id="preloader">Loading the Giggles…</div>
+
+  <header class="flex items-center justify-between p-4 bg-gradient-to-r from-fuchsia-600 via-yellow-400 to-purple-600 text-white">
+    <div class="flex items-center">
+      <img src="WhatsApp_Image_2025-03-10_at_3.36.53_PM-removebg-preview.png" alt="Naavira Logo" class="mr-4 h-12 pulse-glow">
+      <h1 class="text-2xl font-bold">Naavira | Prints and Giggles</h1>
+    </div>
+    <div class="flex gap-4">
+      <button onclick="toggleLang()" class="px-3 py-1 bg-white text-black rounded">🌐 EN/TA</button>
+      <button onclick="toggleTheme()" class="px-3 py-1 bg-white text-black rounded">🌓 Theme</button>
+    </div>
+  </header>
+
+  <nav class="bg-white shadow text-center py-2 font-semibold text-lg">
+    <a href="index.html" class="mx-3">Home</a>
+    <a href="products.html" class="mx-3">Products</a>
+    <a href="services.html" class="mx-3">Services</a>
+    <a href="gallery.html" class="mx-3">Gallery</a>
+    <a href="about.html" class="mx-3">About</a>
+    <a href="contact.html" class="mx-3">Contact</a>
+  </nav>
+
+  <section class="text-center p-8 fade-in">
+    <h2 class="text-3xl font-bold mb-4">Who We Are</h2>
+    <p class="mb-6">Prints and Giggles is your one-stop hub for laughter, love, and lifelike miniatures. From personalized 3D figurines to corporate keepsakes — we sculpt joy, one pixel at a time!</p>
+    <img src="https://via.placeholder.com/400x250?text=Our+Team+at+Work" class="mx-auto rounded shadow-md" alt="Team at work">
+  </section>
+
+  <div class="social-icons">
+    <a href="https://wa.me/917305454716" target="_blank"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp"></a>
+    <a href="https://www.instagram.com/_naavira_/" target="_blank"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram"></a>
+  </div>
+  <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+
+  <footer class="text-center text-sm py-4 bg-purple-100 mt-10">
+    © 2025 Naavira | Prints and Giggles. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("bg-white");
+      document.body.classList.toggle("text-gray-900");
+      document.body.classList.toggle("bg-gradient-to-br");
+      document.body.classList.toggle("from-yellow-50");
+      document.body.classList.toggle("to-pink-50");
+    }
+    function toggleLang() {
+      const h2 = document.querySelector("h2");
+      const p = document.querySelector("section p");
+      if (h2.innerText.includes("Who We Are")) {
+        h2.innerText = "எங்களை பற்றி";
+        p.innerText = "மூன்று பரிமாண மகிழ்ச்சியை உருவாக்கும் உங்கள் ஒரே இடம்!";
+      } else {
+        h2.innerText = "Who We Are";
+        p.innerText = "Prints and Giggles is your one-stop hub for laughter, love, and lifelike miniatures. From personalized 3D figurines to corporate keepsakes — we sculpt joy, one pixel at a time!";
+      }
+    }
+    window.addEventListener('load', () => {
+      document.getElementById('preloader').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
